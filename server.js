@@ -36,9 +36,8 @@ app.use("/api", feedsRouter);
 app.use("/api", profilesRouter);      
 app.use("/api", profileUpdateRouter); 
 app.use("/api", filterRouter); 
-app.use("/api/admin", adminRoutes);  // admin routes 
 app.use("/api/posts", PostsRouter); 
-
+app.use("/api/admin", adminRoutes);  // admin routes 
 const PORT = process.env.PORT; 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 
 
