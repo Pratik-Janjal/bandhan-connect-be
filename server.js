@@ -19,7 +19,7 @@ connectDB();
 
 const app = express(); 
 app.use(cors({ 
-  origin: 'http://localhost:5173', // frontend URL
+  origin: true, // frontend URL
   credentials: true // if sending cookies
 }));
 app.use(express.json()); // To parse JSON body 
