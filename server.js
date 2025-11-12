@@ -1,8 +1,8 @@
-// import { connectDB } from "./config/db.js";
+import { connectDB } from "./config/db.js";
 import userRoutes from "./routes/auth/userRoutes.js"
 import express from "express";
 import cors from 'cors';
-import otpRoutes from "./routes/auth/otpRoutes.js";
+// import otpRoutes from "./routes/auth/otpRoutes.js";
 import profileRoutes from "./routes/auth/profileRoutes.js";
 import dotenv from "dotenv"
 import loginRouter from "./routes/auth/loginRoutes.js";
@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
 }); 
 
 app.use("/api", userRoutes);  // initial registration 
-app.use("/api", otpRoutes); 
+// app.use("/api", otpRoutes); 
 app.use("/api/profile", profileRoutes);  // complete registration 
 app.use("/api", loginRouter);     // login 
 app.use("/api", feedsRouter); 
