@@ -17,23 +17,23 @@ import adminRoutes from "./routes/auth/admin.routes.js";
 dotenv.config();
 connectDB();
 
-const app = express();
-app.use(cors({
+const app = express(); 
+app.use(cors({ 
   origin: 'http://localhost:5173', // frontend URL
   credentials: true // if sending cookies
 }));
-app.use(express.json()); // To parse JSON body
+app.use(express.json()); // To parse JSON body 
 
-app.get("/", (req, res) => {
-    res.send("Server is running successfully!");
-});
+app.get("/", (req, res) => { 
+    res.send("Server is running successfully!"); 
+}); 
 
 app.use("/api", userRoutes);  // initial registration 
 app.use("/api", otpRoutes); 
 app.use("/api/profile", profileRoutes);  // complete registration 
 app.use("/api", loginRouter);     // login 
 app.use("/api", feedsRouter); 
-app.use("/api", profilesRouter);      
+app.use("/api", profilesRouter); 
 app.use("/api", profileUpdateRouter); 
 app.use("/api", filterRouter); 
 app.use("/api/posts", PostsRouter); 
