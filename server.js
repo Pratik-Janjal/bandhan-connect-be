@@ -1,4 +1,4 @@
-import { connectDB } from "./config/db.js";
+// import { connectDB } from "./config/db.js";
 import userRoutes from "./routes/auth/userRoutes.js"
 import express from "express";
 import cors from 'cors';
