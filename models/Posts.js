@@ -1,28 +1,29 @@
 import mongoose from "mongoose";
 
-const postSchema = new mongoose.Schema(
-  {
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
-    caption: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    imageUrl: {
-      type: String,
-      required: false,
-    },
-    postType: {
-      type: String,
-      enum: ["General", "Advice", "Success Story"],
-      default: "General",
-    },
+const PostSchema = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "registeruser",
+    required: true,
   },
-  { timestamps: true }
-);
-const Post = mongoose.models.Post || mongoose.model("communityPosts", postSchema);
-export default Post;
+  caption: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  postType: {
+    type: String,
+    enum: ["advice", "success", "general"],
+    required: true,
+    trim: true,
+    lowercase: true,
+  },
+  imageUrl: String,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+const Post = mongoose.model("communityPosts", PostSchema); 
+export default Post; 
